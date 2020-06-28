@@ -5,17 +5,31 @@ body{
 }
 .triangle{
   position: absolute;
-  top: 50%;
+  top: calc(50%);
+  left: calc(50% - 200px);
   transform: translateY(-50%);
-  width: 100%;
-  text-align: center;
+  width: 400px;
+  height: 300px;
+  --t:10px;  /* Thickness */
+  --c:#404040; /* Color */
+  background:
+    /* Left side */
+    linear-gradient(to bottom left,
+      transparent 49.5%,var(--c) 50% calc(50% + var(--t)),
+      transparent calc(50% + var(--t) + 1px)) right/50% 100%,
+    /* right side */
+    linear-gradient(to bottom right,
+      transparent 49.5%,var(--c) 50% calc(50% + var(--t)),
+      transparent calc(50% + var(--t) + 1px)) left/50% 100%,
+    /* bottom side*/
+    linear-gradient(var(--c),var(--c)) bottom/calc(100% - 2*var(--t)) var(--t);
+  background-repeat:no-repeat;
 }
 .eye{
-  width: 240px;
-  height: 120px;
+  width: 180px;
+  height: 100px;
   background: #fff;
-  display: inline-block;
-  margin: 40px;
+  margin: 113px auto;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
@@ -26,9 +40,8 @@ body{
   height: 40px;
   background: #000;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  margin: auto;
   transform: translate(-50%,-50%);
   border-radius: 50%;
-  border: 15px solid #333;
+  border: 20px solid #333;
 }
